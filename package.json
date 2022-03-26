@@ -1,0 +1,25 @@
+{
+	"name": "create-andspark",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AndSpark/create-andspark.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/AndSpark/create-andspark/issues"
+	},
+	"homepage": "https://github.com/AndSpark/create-andspark#readme",
+	"dependencies": {
+		"kolorist": "^1.5.1",
+		"minimist": "^1.2.5",
+		"prompts": "^2.4.2"
+	}
+}
