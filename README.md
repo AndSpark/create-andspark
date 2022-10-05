@@ -5,9 +5,11 @@ create vite vue tsx
 ## use
 
 ```bash
-npm create andspark@latest
+npm create andspark
 ```
+
 or
+
 ```bash
 yarn create andspark
 ```
