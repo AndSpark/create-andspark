@@ -18,12 +18,12 @@ const FRAMEWORKS = [
 		color: green,
 		variants: [
 			{
-				name: 'vue-tsx',
+				name: 'vue3-oop',
 				display: 'TypeScript',
-				color: blue
-			}
-		]
-	}
+				color: blue,
+			},
+		],
+	},
 ]
 
 const TEMPLATES = FRAMEWORKS.map(
@@ -31,7 +31,7 @@ const TEMPLATES = FRAMEWORKS.map(
 ).reduce((a, b) => a.concat(b), [])
 
 const renameFiles = {
-	_gitignore: '.gitignore'
+	_gitignore: '.gitignore',
 }
 
 async function init() {
@@ -50,14 +50,14 @@ async function init() {
 					name: 'projectName',
 					message: reset('Project name:'),
 					initial: defaultProjectName,
-					onState: state => (targetDir = state.value.trim() || defaultProjectName)
+					onState: state => (targetDir = state.value.trim() || defaultProjectName),
 				},
 				{
 					type: () => (!fs.existsSync(targetDir) || isEmpty(targetDir) ? null : 'confirm'),
 					name: 'overwrite',
 					message: () =>
 						(targetDir === '.' ? 'Current directory' : `Target directory "${targetDir}"`) +
-						` is not empty. Remove existing files and continue?`
+						` is not empty. Remove existing files and continue?`,
 				},
 				{
 					// @ts-ignore
@@ -67,14 +67,14 @@ async function init() {
 						}
 						return null
 					},
-					name: 'overwriteChecker'
+					name: 'overwriteChecker',
 				},
 				{
 					type: () => (isValidPackageName(targetDir) ? null : 'text'),
 					name: 'packageName',
 					message: reset('Package name:'),
 					initial: () => toValidPackageName(targetDir),
-					validate: dir => isValidPackageName(dir) || 'Invalid package.json name'
+					validate: dir => isValidPackageName(dir) || 'Invalid package.json name',
 				},
 				{
 					type: template && TEMPLATES.includes(template) ? null : 'select',
@@ -88,9 +88,9 @@ async function init() {
 						const frameworkColor = framework.color
 						return {
 							title: frameworkColor(framework.name),
-							value: framework
+							value: framework,
 						}
-					})
+					}),
 				},
 				{
 					type: framework => (framework && framework.variants ? 'select' : null),
@@ -102,15 +102,15 @@ async function init() {
 							const variantColor = variant.color
 							return {
 								title: variantColor(variant.name),
-								value: variant.name
+								value: variant.name,
 							}
-						})
-				}
+						}),
+				},
 			],
 			{
 				onCancel: () => {
 					throw new Error(red('✖') + ' Operation cancelled')
-				}
+				},
 			}
 		)
 	} catch (cancelled) {
@@ -239,7 +239,7 @@ function pkgFromUserAgent(userAgent) {
 	const pkgSpecArr = pkgSpec.split('/')
 	return {
 		name: pkgSpecArr[0],
-		version: pkgSpecArr[1]
+		version: pkgSpecArr[1],
 	}
 }
 
