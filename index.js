@@ -18,7 +18,7 @@ const FRAMEWORKS = [
 		color: green,
 		variants: [
 			{
-				name: 'vue3-oop',
+				name: 'vue3-tsx',
 				display: 'TypeScript',
 				color: blue,
 			},
